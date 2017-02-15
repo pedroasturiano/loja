@@ -16,7 +16,7 @@ class loginController extends controller {
                 $senha = addslashes($_POST['senha']);
                 
                 $usuario = new usuario();
-                if($usuario->isExiste($email, $senha)){
+                if($usuario->isExiste($email,$senha)){
                     $_SESSION['cliente'] = $usuario->getId($email);
                     
                     header("Location: /pedidos");
@@ -25,10 +25,7 @@ class loginController extends controller {
                 }
                 
             }
-            
-                $this->loadTemplate("login", array());
-
-             
-
+                    $this->loadTemplate("login",$dados);
 	}
+        
 }

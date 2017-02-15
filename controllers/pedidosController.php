@@ -8,9 +8,10 @@ class pedidosController extends controller {
         public function index() {
             $dados = array();
             
-            if(!isset($_SESSION['cliente']) && !empty($_SESSION['
-                cliente'])){
-                $this->loadTemplate("pedidos", array());
+            if(isset($_SESSION['cliente']) && !empty($_SESSION['
+                cliente'])) {
+                
+                $this->loadTemplate("pedidos", $dados);
 
              }else{
                  header("Location: /login");
@@ -18,3 +19,4 @@ class pedidosController extends controller {
 
 	}
 }
+?>
