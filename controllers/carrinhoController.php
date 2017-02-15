@@ -8,6 +8,7 @@ class carrinhoController extends controller {
 	public function index() {
 		$dados = array();
 		$prods = array();
+                
 		if(isset($_SESSION['carrinho'])) {
 			$prods = $_SESSION['carrinho'];
 		}
