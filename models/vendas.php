@@ -4,8 +4,25 @@ class vendas extends model {
 	public function __construct() {
 		parent::__construct();
 	}
+        
+        public function getPedidosDoUsuario($id_usuario){
+            $array = array();
+            
+            if(!empty($id_usuario)){
+              
+               $sql = "SELECT *, (select pagamentos.nome from pagamentos where pagamentos.id = vendas.forma_pg) as tipopgto FROM vendas WHERE id_usuario = '$id_usuario'"; 
+               $sql = $this->db->query($sql);
+               
+               if($sql->rowCount()> 0){
+                   $array = $sql->fetchAll();
+               }
+            }
+            return $array;
+        }
+        
+       
 
-	public function setVenda($uid, $endereco, $valor, $pg, $prods) {
+        public function setVenda($uid, $endereco, $valor, $pg, $prods) {
 
 		/*
 		1 => Aguardando Pgto.

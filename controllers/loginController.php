@@ -32,5 +32,9 @@ class loginController extends controller {
         $this->loadTemplate("login", $dados);
 
     }
+    
+    public function logout(){
+        unset($_SESSION['cliente']);
+        header("Location: /login");
+    }
 }
-?>

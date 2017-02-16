@@ -1,6 +1,9 @@
 body {
 	margin:0;
 }
+th{
+    text-align: left;
+}
 .topo {
 	height:100px;
 	text-align:center;

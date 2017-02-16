@@ -15,4 +15,10 @@ if(ENVIRONMENT == 'development') {
 	$config['dbpass'] = 'root';
 }
 
+$config['status_pgto'] = array(
+    '1' => 'aguardando Pgto.',
+    '2' => 'aprovado',
+    '3' => 'cancelado'
+);
+
 ?>
