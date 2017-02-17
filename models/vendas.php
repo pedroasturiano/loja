@@ -5,6 +5,43 @@ class vendas extends model {
 		parent::__construct();
 	}
         
+        public function getPedido($id, $id_usuario){
+            $array = array();   
+            
+            $sql = "SELECT *, (select pagamentos.nome from pagamentos where pagamentos.id = vendas.forma_pg) as tipopgto FROM vendas WHERE id_usuario = '$id_usuario'";
+            $sql = $this->db->query($sql);
+         
+            if($sql->rowCount()> 0){
+                $array = $sql->fetch();
+                   
+                $array['produtos'] = $this->getProdutosDoPedidos($id);
+               }
+               return $array;
+        }
+        
+        public function getProdutosDoPedidos($id){
+            $array = array();
+            
+            $sql = "SELECT 
+                    vendas_produtos.quantidade,
+                    vendas_produtos.id_produto,
+                    produtos.nome,
+                    produtos.imagem,
+                    produtos.preco
+                FROM vendas_produtos
+                LEFT JOIN produtos ON vendas_produtos.id_produto =
+                      produtos.id
+                WHERE vendas_produtos.id_venda = '$id'";
+            $sql = $this->db->query($sql);
+            
+             if($sql->rowCount()> 0){
+                $array = $sql->fetch();
+                   
+                $array['produtos'] = $this->getProdutosDoPedidos($id);
+               }
+        }
+
+
         public function getPedidosDoUsuario($id_usuario){
             $array = array();
             

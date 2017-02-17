@@ -17,6 +17,7 @@ global $config;
         <td><?php echo $pedido['valor'];?></td>
         <td><?php echo $pedido['tipopgto'];?></td>
         <td><?php echo $config['status_pgto'][$pedido['status_pg']];?></td>
+        <td><a href="/pedidos/ver/<?php echo $pedido['id']; ?>">Detalhes</a></td>
         
         <td></td>
     </tr>

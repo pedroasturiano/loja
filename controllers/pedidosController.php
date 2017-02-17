@@ -26,26 +26,19 @@ class pedidosController extends controller {
             
             if(!empty($id)){
                 $dados = array();
-                
                 $id = addslashes($id);
                 
-                if(!empty($id)){
-              
-               $sql = "SELECT * FROM vendas WHERE id = '$id' AND id_usuario = '".($_SESSION['cliente'])."'"; 
-               $sql = $this->db->query($sql);
-               
-               if($sql->rowCount()> 0){
-                   $dados['pedido'] = $sql->fetch();
-                   
-                   $this->loadTemplate("pedidos_ver", $dados);
-               }else{
+                $vendas = new vendas();
+                $dados['pedido'] = $vendas->getPedido($id, $_SESSION['cliente']);
+                
+                if(count($dados['pedido']) == 0){
                     header("Location: /pedidos");
-               }
-             
-            } else {
-                header("Location: /pedidos");
-            }
-            
+                    }
+                    
+                    $this->loadTemplate("pedidos_ver", $dados);
+            }else{
+            header("Location: /pedidos");
         }
     }
 }
+?>
