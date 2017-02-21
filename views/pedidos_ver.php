@@ -1,6 +1,4 @@
-<?php 
-global $config;
-?>
+<?php global $config; ?>
 <h1>seu pedido</h1>
 <table border="0" width="100%">
     <tr>
@@ -18,4 +16,16 @@ global $config;
         <td></td>
     </tr>
         
-</table>
+</table>    
+
+<hr/>
+
+<?php foreach ($pedido['produtos'] as $produto): ?>
+<div class="pedido_produto">
+    <img src="/assets/images/prods/<?php echo $produto['imagem']; ?>" border="0" width="100" /> <br/>
+    <?php echo $produto['nome']; ?><br/>
+    R$: <?php echo $produto['preco']; ?><br/>
+    Quantidade: <?php echo $produto['quantidade']; ?><br/>
+</div>
+<?php endforeach; ?>
+<div style="clear: both"></div>

@@ -8,18 +8,21 @@ class vendas extends model {
         public function getPedido($id, $id_usuario){
             $array = array();   
             
-            $sql = "SELECT *, (select pagamentos.nome from pagamentos where pagamentos.id = vendas.forma_pg) as tipopgto FROM vendas WHERE id_usuario = '$id_usuario'";
+            $sql = "SELECT *, (select pagamentos.nome from 
+                pagamentos where pagamentos.id = vendas.forma_pg) as 
+                 tipopgto FROM vendas WHERE id = '$id' AND
+                id_usuario = '$id_usuario'";
             $sql = $this->db->query($sql);
          
             if($sql->rowCount()> 0){
                 $array = $sql->fetch();
                    
-                $array['produtos'] = $this->getProdutosDoPedidos($id);
+                $array['produtos'] = $this->getProdutosDoPedido($id);
                }
                return $array;
         }
         
-        public function getProdutosDoPedidos($id){
+        public function getProdutosDoPedido($id){
             $array = array();
             
             $sql = "SELECT 
@@ -35,10 +38,10 @@ class vendas extends model {
             $sql = $this->db->query($sql);
             
              if($sql->rowCount()> 0){
-                $array = $sql->fetch();
+                $array = $sql->fetchAll();
                    
-                $array['produtos'] = $this->getProdutosDoPedidos($id);
                }
+               return $array;
         }
 
 
