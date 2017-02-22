@@ -22,7 +22,7 @@ class vendas extends model {
                return $array;
         }
         
-        public function getProdutosDoPedido($id){
+        public function getProdutosDoPedido($id){ 
             $array = array();
             
             $sql = "SELECT 
