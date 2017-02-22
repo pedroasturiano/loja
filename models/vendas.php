@@ -106,8 +106,6 @@ class vendas extends model {
                             
                         }
 
-
-
 		}
 
 		foreach($prods as $prod) {
