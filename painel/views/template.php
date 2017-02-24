@@ -1,24 +1,24 @@
 <html>
 	<head>
 		<title>Nossa Loja</title>
-		<link rel="stylesheet" href="/assets/css/template.css" />
+		<link rel="stylesheet" href="/painel/assets/css/template.css" />
 	</head>
 	<body>
 		<div class="topo">
-			<img src="/assets/images/logo.png" border="0" height="70" />
+			<img src="/painel/assets/images/logo.png" border="0" height="70" />
 		</div>
 		<div class="menu">
 			<div class="menuint">
 				<ul>
-					<a href="/"><li>home</li></a>
-					<a href="/empresa"><li>empresa</li></a>
+					<a href="/painel/"><li>home</li></a>
+					<a href="/painel/empresa"><li>empresa</li></a>
 					<?php foreach($menu as $menuitem): ?>
-					<a href="/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo $menuitem['titulo']; ?></li></a>
+					<a href="/painel/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo $menuitem['titulo']; ?></li></a>
 					<?php endforeach; ?>
-					<a href="/contato"><li>contato</li></a>
-                                        <a href="/pedidos"><li>pedidos</li></a>
+					<a href="/painel/contato"><li>contato</li></a>
+                    <a href="/painel/pedidos"><li>pedidos</li></a>
 				</ul>
-				<a href="/carrinho">
+				<a href="/painel/carrinho">
 					<div class="carrinho">
 						Carrinho:<br/>
 						<?php echo (isset($_SESSION['carrinho']))?count($_SESSION['carrinho']):'0'; ?> itens

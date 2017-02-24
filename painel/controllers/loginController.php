@@ -37,6 +37,6 @@ class loginController extends controller {
     
     public function logout(){
         unset($_SESSION['admlogin']);
-        header("Location: /login");
+        header("Location: /loja/painel/login");
     }
 }

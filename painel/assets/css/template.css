@@ -107,6 +107,16 @@ th{
     margin-right: 10px;
 }
 
+.form-control{
+    width: 400px;
+    margin: auto;
+}
+
+.btn-default{
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 185px;
+}
 
 
 

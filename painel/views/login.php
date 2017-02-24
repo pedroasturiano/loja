@@ -1,15 +1,14 @@
-<h1> Página de Login</h1>
+<link rel="stylesheet" href="/painel/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/painel/assets/css/template.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<?php if(!empty($aviso)): ?>
-<div style="background-color: red;color: #FFF; padding: 15px"><?php echo $aviso; ?> </div>
-<?php endif; ?>
-
-<form method="POST">
-    E-mail:<br/>
-    <input type="email" name="email" /><br/><br/>
-    
-    Senha:<br/>
-    <input type="password" name="senha" /><br/><br/>
-    
-    <input type="submit" value="Logar" />
-</form>
+<div class="container">
+    <form method="POST" class="form-group">
+        <h1 class="form-signin text-center"><small>Login no Painel</small></h1>
+                <label for="inputEmail" class="sr-only">Usuario</label>
+                <input type="text" id="usuario" class="form-control" placeholder="Usuário" required autofocus >
+		<label for="inputPassword" class="sr-only">Password</label> <br/>
+		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		<button class="btn btn-lg btn-primary btn-default" type="submit">Entrar</button>
+	</form>
+</div> <!-- /container -->
