@@ -1,34 +1,35 @@
 <html>
-	<head>
-		<title>Nossa Loja</title>
-		<link rel="stylesheet" href="/painel/assets/css/template.css" />
-	</head>
-	<body>
-		<div class="topo">
-			<img src="/painel/assets/images/logo.png" border="0" height="70" />
-		</div>
-		<div class="menu">
-			<div class="menuint">
-				<ul>
-					<a href="/painel/"><li>home</li></a>
-					<a href="/painel/empresa"><li>empresa</li></a>
-					<?php foreach($menu as $menuitem): ?>
-					<a href="/painel/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo $menuitem['titulo']; ?></li></a>
-					<?php endforeach; ?>
-					<a href="/painel/contato"><li>contato</li></a>
-                    <a href="/painel/pedidos"><li>pedidos</li></a>
-				</ul>
-				<a href="/painel/carrinho">
-					<div class="carrinho">
-						Carrinho:<br/>
-						<?php echo (isset($_SESSION['carrinho']))?count($_SESSION['carrinho']):'0'; ?> itens
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="container">
-			<?php $this->loadViewInTemplate($viewName, $viewData); ?>
-		</div>
-		<div class="rodape"></div>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel Administrativo</title>
+    <link href="/painel/assets/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+	<nav class="navbar navbar-inverse">
+      <div class="container">
+        <div id="navbar">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="/painel">Home</a></li>
+            <li><a href="/painel/categorias">Categorias</a></li>
+            <li><a href="/painel/produtos">Produtos</a></li>            
+            <li><a href="/painel/vendas">Vendas</a></li>
+            <li><a href="/painel/usuarios">Usuários</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="/painel/login/sair">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container">
+		<?php $this->loadViewInTemplate($viewName, $viewData); ?>
+	</div>
+	<div class="rodape"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/painel/assets/js/bootstrap.min.js"></script>
+  </body>
 </html>

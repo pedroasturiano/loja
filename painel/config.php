@@ -16,9 +16,8 @@ if(ENVIRONMENT == 'development') {
 }
 
 $config['status_pgto'] = array(
-    '1' => 'aguardando Pgto.',
-    '2' => 'aprovado',
-    '3' => 'cancelado'
+	'1' => 'Aguardando Pgto.',
+	'2' => 'Aprovado',
+	'3' => 'Cancelado'
 );
-
 ?>
